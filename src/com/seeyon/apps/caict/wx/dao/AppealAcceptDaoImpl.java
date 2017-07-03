@@ -19,8 +19,6 @@ import com.seeyon.apps.caict.wx.utils.Constants;
 import com.seeyon.apps.caict.wx.utils.EnumConverUtil;
 import com.seeyon.ctp.common.AppContext;
 import com.seeyon.ctp.common.exceptions.BusinessException;
-import com.seeyon.ctp.common.po.affair.CtpAffair;
-import com.seeyon.ctp.util.DBAgent;
 import com.seeyon.ctp.util.DateUtil;
 import com.seeyon.ctp.util.FlipInfo;
 import com.seeyon.ctp.util.JDBCAgent;

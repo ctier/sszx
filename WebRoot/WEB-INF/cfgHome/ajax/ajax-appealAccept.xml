@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean>
+		<serviceName>appealAcceptManager</serviceName>
+		<operations>
+			<op>transSendSMS</op>
+		</operations>
+	</bean>
+	<bean>
+		<serviceName>callCenterManager</serviceName>
+		<operations>
+			<op>getVoiceData</op>
+			<op>updateVoiceState</op>
+		</operations>
+	</bean>
+</beans>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
+	
+	<bean id="appealAcceptDao" class="com.seeyon.apps.caict.wx.dao.AppealAcceptDaoImpl"></bean>
+	<bean id="appealAcceptManager" class="com.seeyon.apps.caict.wx.manager.AppealAcceptManagerImpl">
+		<property name="sList">
+	        <list>
+	           <!-- 江苏省 -->
+	           <value>2892228694718432760</value>
+               <!-- 福建省 -->
+	           <value>-5058872008252045711</value>
+               <!-- 上海 -->
+	           <value>-4822800900827363145</value>
+               <!-- 重庆 -->
+	           <value>-2476929446011846081</value>
+               <!-- 新疆 -->
+	           <value>-3386100334140963403</value>
+	        </list>
+        </property>
+        <property name="companyList">
+	        <list>
+	           <!-- 移动 -->
+	           <value>-8458094955274092225</value>
+               <!-- 联通-->
+	           <value>8194290886982844958</value>
+               <!-- 铁通 -->
+	           <value>9175389711480278869</value>
+               <!-- 电信 -->
+	           <value>-4615714613311552292</value>
+               <!-- 互联网 
+	           <value>-4968812619647463949</value>
+	           -->
+	        </list>
+        </property>
+	</bean>
+	<bean id="callCenterDao" class="com.seeyon.apps.caict.wx.dao.CallCenterDaoImpl"></bean>
+	<bean id="callCenterManager" class="com.seeyon.apps.caict.wx.manager.CallCenterManagerImpl"></bean>
+	<bean id="shGroupRoleManager" class="com.seeyon.apps.caict.wx.manager.ShGroupRoleManager"></bean>
+	<bean id="blGroupRoleManager" class="com.seeyon.apps.caict.wx.manager.BlGroupRoleManager"></bean>
+	<bean id="tjGroupRoleManager" class="com.seeyon.apps.caict.wx.manager.TjGroupRoleManager"></bean>
+	<bean id="tjhfGroupRoleManager" class="com.seeyon.apps.caict.wx.manager.TjhfGroupRoleManager"></bean>
+	<bean id="slGroupRoleManager" class="com.seeyon.apps.caict.wx.manager.SlGroupRoleManager"></bean>
+	<bean id="sendFlowManager" class="com.seeyon.apps.caict.sendflow.manager.SendFlowManagerImpl"></bean>
+    
+    <bean id="appealAcceptFlowEvent" class="com.seeyon.apps.caict.wx.listener.AppealAcceptFlowEvent"/>
+    <bean id="appealTransactionFlowEvent" class="com.seeyon.apps.caict.wx.listener.AppealTransactionFlowEvent"/>
+    <bean id="appealMediateFlowEvent" class="com.seeyon.apps.caict.wx.listener.AppealMediateFlowEvent"/>
+    <bean id="appealInfoFlowEventHand" class="com.seeyon.apps.caict.wx.listener.AppealInfoFlowEventHand"/>
+    <bean id="appealInfoFlowEventAuto" class="com.seeyon.apps.caict.wx.listener.AppealInfoFlowEventAuto"/>
+    <bean id="appealCancelFlowEvent" class="com.seeyon.apps.caict.wx.listener.AppealCancelFlowEvent"/>
+    <bean id="appealCenterLeaveFlowEvent" class="com.seeyon.apps.caict.wx.listener.AppealCenterLeaveFlowEvent"/>
+	
+	<!-- 表单自定义控件类 -->					
+	<bean id="extPlugToInfo" class="com.seeyon.apps.caict.wx.extend.ExtPlugToInfo"/>					
+	<bean id="extPlugToAccept" class="com.seeyon.apps.caict.wx.extend.ExtPlugToAccept"/>					
+	<bean id="extPlugToTransaction" class="com.seeyon.apps.caict.wx.extend.ExtPlugToTransaction"/>				
+	<bean id="extPlugToMediate" class="com.seeyon.apps.caict.wx.extend.ExtPlugToMediate"/>				
+	<bean id="extPlugToCancel" class="com.seeyon.apps.caict.wx.extend.ExtPlugToCancel"/>				
+	
+	<!-- 定时将互联网数据保存到信息底表进行自动分配并进行流程发起 -->
+	<bean id="appealAcceptFlowAuto" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	     <property name="targetObject">
+            <ref bean="appealAcceptManager"/>
+        </property>
+        <property name="targetMethod">
+            <value>saveAppealData2DB</value>
+        </property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    
+    <bean id="appealAcceptAppealDoTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="appealAcceptFlowAuto"/>
+        </property>
+        <property name="cronExpression">
+           <value>0 0/5 * * * ?</value><!-- 每5分钟执行一次 -->
+        </property>
+    </bean>
+    
+    <!-- 定时从呼叫中心数据库抓取语音留言记录 -->
+	<bean id="saveVoiceFlowAuto" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	     <property name="targetObject">
+            <ref bean="callCenterManager"/>
+        </property>
+        <property name="targetMethod">
+            <value>transVoiceFlow</value>
+        </property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    
+    <bean id="saveVoiceDoTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="saveVoiceFlowAuto"/>
+        </property>
+        <property name="cronExpression">
+           <value>0 0/5 * * * ?</value><!-- 每5分钟执行一次 -->
+        </property>
+    </bean>
+    
+    <!-- 定时发起电子传真流程 -->
+	<bean id="callCenterFaxFlowAuto" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	     <property name="targetObject">
+            <ref bean="callCenterManager"/>
+        </property>
+        <property name="targetMethod">
+            <value>sendFaxFileFlow</value>
+        </property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    
+    <bean id="callCenterFaxDoTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="callCenterFaxFlowAuto"/>
+        </property>
+        <property name="cronExpression">
+           <value>0 0/5 * * * ?</value><!-- 每5分钟执行一次 -->
+        </property>
+    </bean>
+    
+    <!-- 用户申诉信息单流程 自动发起
+	<bean id="sendTaskFlowAuto" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	     <property name="targetObject">
+            <ref bean="appealAcceptManager"/>
+        </property>
+        <property name="targetMethod">
+            <value>sendTaskFlow</value>
+        </property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    
+    <bean id="sendTaskDoTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="sendTaskFlowAuto"/>
+        </property>
+        <property name="cronExpression">
+           <value>0 0/5 * * * ?</value>
+        </property>
+    </bean>
+    -->
+    <!-- 定时自动分配任务发起流程 -->
+	<bean id="autoAssigningTaskJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	     <property name="targetObject">
+            <ref bean="appealAcceptManager"/>
+        </property>
+        <property name="targetMethod">
+            <value>transAutoAssigningTask</value>
+        </property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    
+    <bean id="autoAssigningTaskJobDoTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="autoAssigningTaskJob"/>
+        </property>
+        <property name="cronExpression">
+           <value>0 0/5 * * * ?</value><!-- 每5分钟执行一次 -->
+        </property>
+    </bean>
+    <bean id="appealAcceptStartQuertz" lazy-init="true" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+        		<ref bean="appealAcceptAppealDoTime"/>
+        		<ref bean="autoAssigningTaskJobDoTime"/>
+        		<!-- 网络问题，暂时不启用
+        		<ref bean="saveVoiceDoTime"/>
+        		<ref bean="callCenterFaxDoTime"/>
+        		 -->
+        		<!-- 
+        		<ref bean="sendTaskDoTime"/>
+        		 -->
+            </list>
+        </property>
+    </bean>
+</beans>

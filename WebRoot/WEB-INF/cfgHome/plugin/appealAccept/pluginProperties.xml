@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ctpConfig>
+    <appealAccept>
+    	<serialNumberId desc="申诉信息流水号ID">8963928718681491891</serialNumberId>
+		<templateCode desc="自动发起表单流程所使用的表单模板编号">
+			<appeal desc="用户申诉信息单">caict_info_flow</appeal>
+			<fax desc="电子传真">caict_fax_flow</fax>
+		</templateCode>
+		<tokenUrl>http://10.3.65.37:8037/seeyon/services/authorityService?wsdl</tokenUrl>
+		<sendFormUrl>http://10.3.65.37:8037/seeyon/services/BPMService?wsdl</sendFormUrl>
+		<startMemberId>-1923196977193727491</startMemberId>
+		<flowStateEnum desc="流程分配状态枚举">
+			<wfp desc="未分配">6232550785642153504</wfp>
+			<yfp desc="已分配">-5976742627250256492</yfp>
+			<cf desc="重复数据">-1431363611334129849</cf>
+		</flowStateEnum>
+		<ztqyEnumId desc="主投企业枚举ID">
+			<yd desc="移动">-8458094955274092225</yd>
+			<lt desc="联通">8194290886982844958</lt>
+			<dx desc="电信">-4615714613311552292</dx>
+			<tt desc="铁通">9175389711480278869</tt>
+			<hlw desc="互联网企业">-4968812619647463949</hlw>
+			<sw desc="三网">3985360999330301536</sw>
+			<xn desc="虚拟运营商">6236461162329425967</xn>
+		</ztqyEnumId>
+		<!--  按运营商区分，暂时取消
+		<groupId desc="人员请休假底表所属小组ID">
+			<ydrd desc="移动认定组">1471795509800226135</ydrd>
+			<ydsh desc="移动审核组">3288910763245456455</ydsh>
+			<ydsl desc="移动受理组"></ydsl>
+			<ydbl desc="移动办理组">-4040843042909762235</ydbl>
+			<ydtj desc="移动调解组">-2613277360116447679</ydtj>
+			<ltrd desc="联通认定组">-7557147994599700162</ltrd>
+			<ltsh desc="联通审核组">4598744329073085972</ltsh>
+			<ltsl desc="联通受理组"></ltsl>
+			<ltbl desc="联通办理组">-1825120346571324969</ltbl>
+			<lttj desc="联通调解组">-2004257190532790770</lttj>
+			<dxrd desc="电信认定组">8889686436251518019</dxrd>
+			<dxsh desc="电信审核组">6203974632765080286</dxsh>
+			<dxsl desc="电信受理组"></dxsl>
+			<dxbl desc="电信办理组">2472803274953673231</dxbl>
+			<dxtj desc="电信调解组">8707638833655859894</dxtj>
+			<xnrd desc="虚拟运营商认定组">-2330067533204795939</xnrd>
+			<xnsh desc="虚拟运营商审核组">-3760536371709063939</xnsh>
+			<xnsl desc="虚拟运营商受理组"></xnsl>
+			<xnbl desc="虚拟运营商办理组">7106843278554254681</xnbl>
+			<xntj desc="虚拟运营商调解组">2693759934127490045</xntj>
+		</groupId>
+		-->
+		<groupId desc="人员请休假底表所属小组ID">
+			<rd desc="认定组">-6098331313949749377</rd>
+			<sh desc="审核组">3189244062697406912</sh>
+		</groupId>
+		<!-- ctp_template表 -->
+		<templateId desc="模板ID">
+			<xx desc="申诉信息单模板ID">7000239272736148832</xx>
+			<sl desc="受理单模板ID">3620542888262585238</sl>
+			<bl desc="办理单模板ID">-4064628279973689750</bl>
+			<tj desc="调解单模板ID">-4382338949329632220</tj>
+		</templateId>
+		<uploadFilePath desc="读取文件之后写到服务器的路径">
+			<web>/Seeyon/G6/ApacheJetspeed/webapps/seeyon/uploadefile/web/</web>
+			<callCenter>/Seeyon/G6/ApacheJetspeed/webapps/seeyon/uploadefile/callCenter/</callCenter>
+		</uploadFilePath>
+		<orgAcconutID desc="单位ID，用来获取单位下的工作时间，判断5个工作日使用">-1730833917365171641</orgAcconutID>
+		<formfield desc="用户申诉信息单自动触发流程">
+			<formmain desc="申诉信息单">formmain_0057</formmain>
+			<appealTypeId desc="申诉类型枚举ID">-4254801352680911950</appealTypeId>
+			<tj desc="申诉类型-调解">1667614053322670875</tj>
+			<cs desc="申诉类型-撤诉">8961323682169634858</cs>
+			<appealModeId desc="申诉方式枚举ID">7497127101812526495</appealModeId>
+			<processModeId desc="处理方式枚举ID">5879571069500146017</processModeId>
+			<classifyId desc="分类码枚举ID">9039864390470291160</classifyId>
+			<businessId desc="业务码枚举ID">-3514770279137000121</businessId>
+			<province desc="归属地枚举">4918799018401809665</province>
+			<ssly desc="申诉来源枚举">7522415096002004450</ssly>
+			<btsqy desc="被投诉企业">-2546162180023235858</btsqy>
+			<userName desc="用户姓名">field0005</userName>
+			<workAdd desc="工作单位">field0006</workAdd>
+			<appealDate desc="申诉日期">field0007</appealDate>
+			<userPhone desc="联系电话">field0008</userPhone>
+			<email desc="电子邮件">field0009</email>
+			<poscode desc="邮政编码">field0010</poscode>
+			<usercarId desc="身份证号码">field0011</usercarId>
+			<appealSource desc="申诉来源">field0012</appealSource>
+			<disputeNum desc="申诉涉及号码">field0013</disputeNum>
+			<userAdd desc="用户地址">field0014</userAdd>
+			<bssqy desc="被申诉企业">field0015</bssqy>
+			<ejssqy desc="二级申诉企业">field0016</ejssqy>
+			<qytsbm desc="投诉受理单号">field0017</qytsbm>
+			<dqyj desc="地区一级">field0018</dqyj>
+			<dqej desc="地区二级">field0019</dqej>
+			<appealContext desc="申诉内容">field0020</appealContext>
+			<fj desc="申诉附件">field0021</fj>
+			<sslx desc="申诉类型">field0036</sslx>
+			<oaInstanceId desc="申诉信息流水号">field0037</oaInstanceId>
+			<sl desc="是否受理">field0035</sl>
+			<dataId desc="数据ID">field0046</dataId>
+			<rdy desc="认定员">field0042</rdy>
+			<zzhtzd desc="自动终止时回写字段">field0069</zzhtzd>
+			<bCodeOne desc="业务码一">field0052</bCodeOne>
+			<bCodeTwo desc="业务码二">field0050</bCodeTwo>
+			<bCodeThree desc="业务码三">field0048</bCodeThree>
+			<bCodeFour desc="业务码四">field0054</bCodeFour>
+			<classifyCodeOne desc="分类码一">field0053</classifyCodeOne>
+			<classifyCodeTwo desc="分类码二">field0049</classifyCodeTwo>
+			<classifyCodeThree desc="分类码三">field0051</classifyCodeThree>
+		</formfield>
+		<formfieldHand desc="用户申诉信息单手动触发流程">
+			<userName desc="用户姓名">field0005</userName>
+			<workAdd desc="工作单位">field0006</workAdd>
+			<appealDate desc="申诉日期">field0007</appealDate>
+			<userPhone desc="联系电话">field0008</userPhone>
+			<email desc="电子邮件">field0009</email>
+			<poscode desc="邮政编码">field0010</poscode>
+			<usercarId desc="身份证号码">field0011</usercarId>
+			<appealSource desc="申诉来源">field0012</appealSource>
+			<disputeNum desc="申诉涉及号码">field0013</disputeNum>
+			<userAdd desc="用户地址">field0014</userAdd>
+			<bssqy desc="被申诉企业">field0015</bssqy>
+			<ejssqy desc="二级申诉企业">field0016</ejssqy>
+			<qytsbm desc="投诉受理单号">field0017</qytsbm>
+			<dqyj desc="地区一级">field0018</dqyj>
+			<dqej desc="地区二级">field0019</dqej>
+			<appealContext desc="申诉内容">field0020</appealContext>
+			<sslx desc="申诉类型">field0036</sslx>
+			<dataId desc="数据ID">field0046</dataId>
+		</formfieldHand>
+		<sformfield desc="受理流程">
+			<formmain desc="受理流程主表">formmain_0067</formmain>
+			<zyhm desc="争议号码">field0013</zyhm>
+			<userName desc="用户姓名">field0005</userName>
+			<cljg desc="处理结果">field0036</cljg>
+			<xxdlsh desc="信息单流水号">field0064</xxdlsh>
+			<appealDate desc="申诉日期">field0066</appealDate>
+			<bssqy desc="被申诉企业">field0012</bssqy>
+			<bssdq desc="被申诉企业地区">field0014</bssdq>
+			<sllsh desc="用户申诉受理流水号">field0019</sllsh>
+			<lsh desc="省/部使用流水号ID">
+				<b desc="部中心">6577009716803522137</b>
+				<c desc="重庆">7506582879414478109</c>
+				<s desc="上海">4669025829576747066</s>
+				<x desc="新疆">6024592068636281765</x>
+				<j desc="江苏">5483476176613104814</j>
+				<f desc="福建">8462678247527483972</f>
+			</lsh>
+			<zzhtzd desc="自动终止时回写字段">field0090</zzhtzd>
+		</sformfield>
+		<bformField desc="办理流程">
+			<formmain desc="办理单流程主表">formmain_0016</formmain>
+			<zyhm desc="争议号码">field0013</zyhm>
+			<aInstanceId desc="信息单中的流水号，触发时须关联到办理单中进行查询相关流程操作">field0019</aInstanceId>
+			<aUserPhone desc="联系电话">field0008</aUserPhone>
+			<appealDate desc="申诉日期">field0007</appealDate>
+			<userName desc="用户姓名">field0005</userName>
+			<bssqy desc="被申诉企业">field0012</bssqy>
+		</bformField>
+		<tformField desc="调解流程">
+			<formmain desc="调解单流程主表">formmain_0019</formmain>
+			<zyhm desc="争议号码">field0013</zyhm>
+			<mediateDate desc="申请调解日期">field0007</mediateDate>
+			<userPhone desc="用户调解流程联系电话">field0008</userPhone>
+			<serialNumber desc="信息单中对应的流水号">field0019</serialNumber>
+			<userName desc="用户姓名">field0005</userName>
+			<bssqy desc="被申诉企业">field0012</bssqy>
+		</tformField>
+		<cformField desc="撤诉流程">
+			<formmain desc="流程主表">formmain_0071</formmain>
+			<sslsh desc="申诉信息单中流水号">field0035</sslsh>
+			<ssxxlsh desc="申诉信息单中撤诉使用流水号">field0021</ssxxlsh>
+			<disputeNum desc="争议号码">field0013</disputeNum>
+			<userName desc="用户姓名">field0005</userName>
+		</cformField>
+		<dbFormField desc="信息底表数据">
+			<formmain desc="主表名称">formmain_0025</formmain>
+			<userName desc="用户姓名">field0001</userName>
+			<workAdd desc="工作单位">field0002</workAdd>
+			<disputeNum desc="申诉涉及号码">field0003</disputeNum>
+			<poscode desc="邮政编码">field0004</poscode>
+			<userAdd desc="用户地址">field0005</userAdd>
+			<usercarId desc="身份证号码">field0043</usercarId>
+			<appealSource desc="申诉来源">field0063</appealSource>
+			<appealDate desc="申诉日期">field0066</appealDate>
+			<userPhone desc="联系电话">field0069</userPhone>
+			<email desc="电子邮件">field0080</email>
+			<bssqy desc="被申诉企业">field0062</bssqy>
+			<ejssqy desc="二级申诉企业">field0076</ejssqy>
+			<qytsbm desc="企业投诉编码">field0085</qytsbm>
+			<dqyj desc="地区一级">field0067</dqyj>
+			<dqej desc="地区二级">field0072</dqej>
+			<appealContext desc="申诉内容">field0057</appealContext>
+			<fj desc="申诉附件">field0055</fj>
+			<sslx desc="申诉类型">field0084</sslx>
+			<jc desc="省份简称">field0010</jc>
+			<flowState desc="分配状态">field0082</flowState>
+			<personId desc="认定员">field0083</personId>
+			<personNum desc="认定员人员编号">field0081</personNum>
+			<dataId desc="数据ID">field0008</dataId>
+			<cslsh desc="撤诉时使用流水号">field0086</cslsh>
+			<xnyyshfry desc="虚拟运营商回复人员">field0087</xnyyshfry>
+		</dbFormField>
+		<aflFormField desc="请休假表信息底表">
+		     <formmain desc="主表">formmain_0220</formmain>
+		     <starttime desc="请休假开始时间">field0009</starttime>
+		     <endtime  desc="请休假结束时间">field0010</endtime>
+		     <groupid  desc="所属组编号">field0001</groupid>
+		     <userid  desc="姓名">field0005</userid>
+		     <userCode  desc="人员编号">field0011</userCode>
+		</aflFormField>
+		<xnCompany desc="虚拟运营商企业人员维护底表">
+			<formmain desc="表名">formmain_0267</formmain>
+			<area desc="所属地区">field0005</area>
+			<ssqys desc="所属企业二级">field0002</ssqys>
+			<ssqyf desc="所属企业一级">field0004</ssqyf>
+			<personNum desc="人员ID">field0003</personNum>
+		</xnCompany>
+		<sfrdydb desc="省份认定员底表">
+			<formmain desc="省份认定员底表主表">formmain_0457</formmain>
+			<sf desc="所属省份">field0001</sf>
+			<rdy desc="认定员">field0002</rdy>
+		</sfrdydb>
+		<leave desc="请假审批流程">
+			<userName desc="姓名">field0001</userName>
+			<userCode desc="人员编号">field0014</userCode>
+			<startTime desc="请假开始时间">field0005</startTime>
+			<endTime desc="请假结束时间">field0006</endTime>
+		</leave>
+		<oaUploadFileService desc="上传附件的webservcie接口">http://10.3.65.37:8037/seeyon/uploadService.do?method=processUploadService</oaUploadFileService>
+		<jdbcOracle>
+			<driver desc="连接驱动">oracle.jdbc.driver.OracleDriver</driver>
+			<url desc="url">jdbc:oracle:thin:@192.168.1.104:1521:orcl</url>
+			<username desc="用户名">icd</username>
+			<password desc="密码">icd</password>
+		</jdbcOracle>
+    </appealAccept>
+</ctpConfig>

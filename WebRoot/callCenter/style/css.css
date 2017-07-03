@@ -1,0 +1,137 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.top{
+	background:url(../images/top.gif) repeat-x;
+	height:48px;
+	position:relative;
+	z-index:10
+}
+#left{
+	height:767px;
+}
+.left{
+	background:url(../images/left_top.gif) repeat-x;
+	height:24px;
+	line-height:24px;
+	width:202px;
+	float:left;
+}
+.left ul li{
+	font-weight:bold;
+	color:#15428b;
+	float:left;
+	font-size:12px;
+	margin-left:3px;
+	display:inline;
+}
+.left span{
+	float:right;
+	background:url(../images/ico_arrows.gif) center center no-repeat;
+	width:15px;
+	height:24px;
+	line-height:24px;
+	margin-right:5px;
+	display:inline;
+}
+#tag{
+	background:url(../images/main_top.gif) repeat-x;
+	height:26px;
+	width:100%;
+}
+#tag ul{
+	float:left;
+	height:26px;
+}
+#tag ul li{
+	float:left;
+	background:url(../images/tag2_bg.gif) repeat-x;
+	height:26px;
+	line-height:26px;
+	color:#416aa3;
+	margin-left:1px;
+	margin-right:1px;
+	text-align:center;
+	font-size:12px;
+	position:relative;
+	padding-right:6px;
+}
+/* tag��ǩ����״̬tag1:����,tag2:Ĭ��;*/
+#tag ul li.tag2 span.span1{
+	float:left;
+	height:24px;
+	line-height:26px;
+	width:3px;
+	background:url(../images/tag2_bg.gif) left center no-repeat;
+}
+#tag ul li.tag2 span.span2{
+	position:absolute;
+	right:0;
+	top:0;
+	height:26px;
+	line-height:26px;
+	width:3px;
+	background:url(../images/tag2_bg.gif) right no-repeat;
+}
+
+#tag ul a li.tag2{
+	float:left;
+	background:url(../images/tag2_bg.gif) repeat-x;
+	height:26px;
+	line-height:26px;
+	color:#416aa3;
+	margin-left:1px;
+	margin-right:1px;
+	text-align:center;
+	font-size:12px;
+	position:relative;
+	padding-right:6px;
+}
+#tag ul a li.tag2 span.span1{
+	float:left;
+	height:24px;
+	line-height:26px;
+	width:3px;
+	background:url(../images/tag2_left.gif) no-repeat;
+}
+#tag ul a li.tag2 span.span2{
+	position:absolute;
+	right:0;
+	top:0;
+	height:26px;
+	line-height:26px;
+	width:3px;
+	background:url(../images/tag2_right.gif) no-repeat;
+}
+
+#tag ul li.tag1{
+	float:left;
+	background:url(../images/tag1_bg.gif) repeat-x;
+	height:26px;
+	line-height:26px;
+	color:#416aa3;
+	margin-left:1px;
+	margin-right:1px;
+	text-align:center;
+	font-size:12px;
+	position:relative;
+	padding-right:6px;
+	font-weight:bold;
+}
+#tag ul li.tag1 span.span1{
+	float:left;
+	height:24px;
+	line-height:26px;
+	width:3px;
+	background:url(../images/tag1_left.gif) no-repeat;
+}
+#tag ul li.tag1 span.span2{
+	position:absolute;
+	right:0;
+	top:0;
+	height:26px;
+	line-height:26px;
+	width:3px;
+	background:url(../images/tag1_right.gif) no-repeat;
+}

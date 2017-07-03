@@ -1,0 +1,31 @@
+html{height:100%;}
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #F5F9FC;
+	font-size: 12px;
+	font-family: "Tahoma","Arial","ËÎÌו";
+	scrollbar-3dlight-color:#9FC1E8;
+	scrollbar-arrow-color:#89B2E0;
+	scrollbar-base-color:#CFCFCF;
+	scrollbar-darkshadow-color:#EBF0FA;
+	scrollbar-face-color:#BFD4F0;
+	scrollbar-track-color: #E2EEF7;
+	scrollbar-highlight-color:#EEF8FF;
+	scrollbar-shadow-color:#8EBEEA;
+}
+img {border:0}
+p {margin:0;}
+
+table,td,p,div,a {
+marign: 0px;
+padding: 0px;
+font-size: 12px;
+font-family: "Tahoma","Arial","ËÎÌו";
+line-height: 150%;
+}
+input,select,textarea {
+font-size: 12px;
+font-family: "Tahoma","Arial","ËÎÌו";
+padding-left: 5px;
+}
